@@ -12,52 +12,68 @@ export default function App() {
 
   const createPeer = async () => {
     var peer = new Peer();
-    peer.on('open', function(id) {
+    var local_stream;
+    peer.on('open', function (id) {
       console.log('My peer ID is: ' + id);
-      setId(id);
-      setPeer(peer);
+      const constraints = { 'video': true, 'audio': true };
+      navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
+        console.log(localVideo);
+        local_stream = stream;
+        const videoElement = localVideo.current;
+        videoElement.srcObject = stream;
+        setId(id);
+        setPeer(peer);
+      })
+
+    });
+    peer.on('call', (call) => {
+      call.answer(local_stream);
+      call.on('stream', (remote_stream) => {
+        console.log("Has remote_stream");
+        remoteVideo.current.srcObject = remote_stream;
+      })
     });
   }
 
-  async function playVideos() {
-    callAndPlayVideoFromRemoteCamera();
-    listenAndSendVideoFromRemoteCamera();
-  }
 
-  /*async function playVideoFromLocalCamera(){
+  async function playVideoFromLocalCamera() {
     try {
-      const constraints = {'video': true, 'audio': true};
+      const constraints = { 'video': true, 'audio': true };
       const stream = await navigator.mediaDevices.getUserMedia(constraints);
       console.log(localVideo);
       const videoElement = localVideo.current;
       videoElement.srcObject = stream;
-  } catch(error) {
+    } catch (error) {
       console.error('Error opening video camera.', error);
-  }
-  }*/
-  
-  async function callAndPlayVideoFromRemoteCamera() {
-    const constraints = {video: true, audio: true}
-    navigator.mediaDevices.getUserMedia(constraints).then(stream => {
-      console.log("Stream get", stream);
-      const call = peer.call(idRemote.current, stream);
-      call.on('stream', function(remoteStream)  {
-          
-          const videoElement = remoteVideo.current;
-          remoteVideo.current.srcObject = remoteStream;
-      });
-    }, (err) => {
-      console.error('Failed to get local stream', err);
-    }).catch(error => {
-      console.log("Error in calling", error);
-    });
+    }
   }
 
-  async function listenAndSendVideoFromRemoteCamera(){
+  async function joinMeet() {
+    let peer = new Peer()
+    var remote_id = idRemote.current.value
+    peer.on('open', (id)=>{
+        console.log("Connected with Id: "+id);
+        const constraints = { 'video': true, 'audio': true };
+        navigator.mediaDevices.getUserMedia(constraints).then( (stream)=>{
+          console.log("Join stream", stream);
+          const videoElement = localVideo.current;
+          videoElement.srcObject = stream;
+            let call = peer.call(remote_id, stream) // no sé si es id remote o l'altra
+            call.on('stream', (remote_stream)=>{
+                remoteVideo.current.srcObject = remote_stream;
+            })
+        });
+    })
+  }
+
+  async function answerCall() {
     peer.on('call', (call) => {
-      const constraints = {video: true, audio: true}
+      console.log("CallAnswer", call);
+      call.answer("Peer on Answer Call");
+      const constraints = { video: true, audio: true }
       navigator.mediaDevices.getUserMedia(constraints).then(stream => {
-        call.answer(stream); // Answer the call with an A/V stream.
+        console.log("Answer Stream get", stream);
+        let call = peer.call()
         call.on('stream', (remoteStream) => {
           const videoElement = remoteVideo.current;
           videoElement.srcObject = remoteStream;
@@ -69,19 +85,22 @@ export default function App() {
   }
 
   return (
-    <div className = "container">
-        <Button variant="contained" onClick={ () =>  createPeer()} color="primary">
-        Join
+    <div className="container">
+      <Button variant="contained" onClick={() => createPeer()} color="primary">
+        Create Meet
       </Button>
-      <div> 
+      <div>
         Checking...
-      { id != null && <p>You're code is: {id}</p> }
+      {id != null && <p>You're code is: {id}</p>}
       </div>
       <p>Enter the id of you mate:</p>
-      <input ref = {idRemote}></input>
-      <Button variant="contained" onClick={ () =>  playVideos()} color="primary">Call</Button>
-      <video ref={localVideo} width="320" height="240" autoPlay playsInline controls={false}/>
-      <video width="320" height="240" autoPlay playsInline controls={false} ref={remoteVideo}/>
+      <input ref={idRemote}></input>
+      <Button variant="contained" onClick={() => joinMeet()} color="primary">Join Meet</Button>
+      <video ref={localVideo} width="320" height="240" autoPlay playsInline controls={false} />
+      <video width="320" height="240" autoPlay playsInline controls={false} ref={remoteVideo} />
+
+      <Button variant="contained" onClick={() => answerCall()} color="primary">Answer</Button>
+      <Button variant="contained" onClick={() => playVideoFromLocalCamera()} color="primary">Display local video</Button>
     </div>
   );
 }
