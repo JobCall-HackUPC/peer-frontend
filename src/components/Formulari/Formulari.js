@@ -26,13 +26,15 @@ export default function Formulari() {
 
     return (
         <div>
-            <div align="center">
-                <h1>Llistat de Tags</h1>
+            <div align="center" className="m-5 p-2">
+                <div className="jumbotron">
+                <h1>List of Tags</h1>
                 <form>
                     <div className="row">
                     {itemTags}</div>
                     <button className="btn btn-primary" type="submit">Submit form</button>
                 </form>
+                </div>
             </div>
         </div >
     );
