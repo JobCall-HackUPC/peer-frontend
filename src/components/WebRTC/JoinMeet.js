@@ -4,8 +4,8 @@ import Peer from 'peerjs';
 
 export default function JoinMeet ({ idRemote }) {
 
-    const localVideo = React.useRef(null);
-    const remoteVideo = React.useRef(null);
+    const localVideo = React.useRef();
+    const remoteVideo = React.useRef();
 
     const meeting = function() {
         console.log("MEETING");
@@ -14,16 +14,16 @@ export default function JoinMeet ({ idRemote }) {
         peer.on('open', (id)=>{
             console.log("Connected with Id: "+id);
             const constraints = { 'video': true, 'audio': true };
-            navigator.mediaDevices.getUserMedia(constraints).then( (stream)=>{
+            navigator.mediaDevices.getUserMedia(constraints).then( (stream) => {
                 console.log("Join stream", stream);
                 const videoElement = localVideo.current;
                 videoElement.srcObject = stream;
                 let call = peer.call(remote_id, stream) // no sé si es id remote o l'altra
                 call.on('stream', (remote_stream)=>{
                     remoteVideo.current.srcObject = remote_stream;
-                })
+                });
             });
-        })
+        });
     };
     meeting();
     
