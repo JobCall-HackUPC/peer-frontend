@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WebRTC from './components/WebRTC.js';
-import Login from './components/Login/Login.js';
+import Formulari from './components/Formulari/Formulari.js';
 import useToken from './components/useToken.js';
 
 
@@ -32,6 +32,9 @@ export default function App() {
         <Switch>
           <Route path="/webrtc">
             <WebRTC />
+          </Route>
+          <Route path="/form">
+            <Formulari />
           </Route>
         </Switch>
       </BrowserRouter>
