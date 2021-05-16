@@ -3,6 +3,8 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WebRTC from './components/WebRTC.js';
 import Formulari from './components/Formulari/Formulari.js';
 import useToken from './components/useToken.js';
+import './App.css';
+import Login from './components/Login/Login.js'
 
 
 function setToken(userToken) {
@@ -21,13 +23,14 @@ export default function App() {
   const { token, setToken } = useToken();
   
 
-   if(!token) {
-     return <Login setToken={setToken} />
-   }
+  //  if(!token) {
+  //    return <Login setToken={setToken} />
+  //  }
 
 
   return (
-    <div className="wrapper">
+    <div className="wrapper" >
+      <div className="background">
       <BrowserRouter>
         <Switch>
           <Route path="/webrtc">
@@ -38,6 +41,7 @@ export default function App() {
           </Route>
         </Switch>
       </BrowserRouter>
+      </div>
     </div>
   );
 }
