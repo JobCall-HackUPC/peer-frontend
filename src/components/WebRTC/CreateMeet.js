@@ -13,6 +13,12 @@ export default function CreateMeet() {
   const idRemote = React.useRef(null);
 
 
+
+
+  const send_peer_id = async (id) => {
+    console.log( await fetch('http://jofre/call/'+id));
+  }
+
   const createPeer = async () => {
     console.log("hola");
     if (opened) {
@@ -22,8 +28,7 @@ export default function CreateMeet() {
     var local_stream;
     peer.on('open', function (id) {
       console.log('My peer ID is: ' + id);
-
-
+      send_peer_id(id);
       const constraints = { 'video': true, 'audio': true };
       navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
         console.log(localVideo);
@@ -44,10 +49,36 @@ export default function CreateMeet() {
     });
   }
 
+<<<<<<< HEAD
   return (
     <div className="container">
       <div className="container pt-3" align="center">
         <h1>Create a SpeedDating</h1>
+=======
+    return (
+        <div className="container">
+          <div className="row d-inline">
+          <div className = "row" align = "center" style={{padding:"10px"}}>
+            <div className = "col-xs-12 col-sm-12 col-md-6 col-lg-6" align = "center" >
+              <video ref={localVideo} width="100%" height="100%" autoPlay playsInline controls={false} />
+            </div>
+            <div className = "col-xs-12 col-sm-12 col-md-6 col-lg-6" align = "center">
+              <video width="100%" height="100%" autoPlay playsInline controls={false} ref={remoteVideo} />
+            </div>
+            </div>
+            <div className = "col-xs-12 col-sm-12 col-md-12 col-lg-12" align = "center" style={{padding:"10px"}}>
+              <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style={{height: "100px"}}></textarea>
+                <label for="floatingTextarea2">Comments</label>
+              </div>
+              <div className = "col-xs-12 col-sm-12 col-md-12 col-lg-12" style={{"padding-top" : "15px"}}>
+              <Button variant="contained" onClick={() => createPeer()} color="primary">
+                Create Meet
+              </Button>
+              </div>
+          </div>
+          </div>
+>>>>>>> eda0b6700a6662cb48c64be3cdffd0ac9811af4d
       </div>
       <form align="left" className="pt-3">
         <div className="gradientmeet arrodonit pb-3 pl-2 pr-2">
