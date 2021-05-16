@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Button } from '@material-ui/core';
 import './CreateMeet.css'
 import Peer from 'peerjs';
@@ -10,7 +10,6 @@ export default function CreateMeet() {
   const [opened, setOpened] = React.useState(true);
   const localVideo = React.useRef(null);
   const remoteVideo = React.useRef(null);
-  const idRemote = React.useRef(null);
 
 
 

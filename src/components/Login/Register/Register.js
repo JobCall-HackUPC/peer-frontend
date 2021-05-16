@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 import './Register.css';
 
@@ -26,15 +26,15 @@ export default function Register({ setToken }) {
   const [enterprise, setEnterprise] = useState();
 
 
-  const handleSubmit = async e => {
-    e.preventDefault();
-    const token = await register({
-      username,
-      password,
-      email,
-      enterprise
-    });
-  }
+  // const handleSubmit = async e => {
+  //   e.preventDefault();
+  //   const token = await register({
+  //     username,
+  //     password,
+  //     email,
+  //     enterprise
+  //   });
+  // }
 
 
   return (

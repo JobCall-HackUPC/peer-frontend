@@ -1,28 +1,28 @@
-import {useState} from 'react';
+// import {useState} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import WebRTC from './components/WebRTC.js';
 import Formulari from './components/Formulari/Formulari.js';
-import useToken from './components/useToken.js';
+// import useToken from './components/useToken.js';
 import './App.css';
 import Home from './components/Home.js'
 import Login from './components/Login/Login.js';
 
 
 
-function setToken(userToken) {
-  sessionStorage.setItem('token', JSON.stringify(userToken));
-}
+// function setToken(userToken) {
+//   sessionStorage.setItem('token', JSON.stringify(userToken));
+// }
 
-function getToken() {
-  const tokenString = sessionStorage.getItem('token');
-  const userToken = JSON.parse(tokenString);
-  return userToken?.token
-}
+// function getToken() {
+//   const tokenString = sessionStorage.getItem('token');
+//   const userToken = JSON.parse(tokenString);
+//   return userToken?.token
+// }
 
 
 export default function App() {
 
-  //const { token, setToken } = useToken();
+  // const { token, setToken } = useToken();
   
 
 
