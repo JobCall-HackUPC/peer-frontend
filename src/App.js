@@ -25,16 +25,15 @@ export default function App() {
   const { token, setToken } = useToken();
   
 
-    //if(!token) {
-    //  return <div className="background"><Login setToken={setToken} /></div>
-    //}
-
 
   return (
     <div className="wrapper" >
       <div className="background">
       <BrowserRouter>
         <Switch>
+        <Route path="/login">
+            <Login />
+          </Route>
           <Route path="/webrtc">
             <WebRTC />
           </Route>

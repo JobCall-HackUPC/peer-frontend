@@ -35,13 +35,13 @@ export default function Login({ setToken }) {
     <div className="login-wrapper" align="center">
       <div className="container">
         <div className="row">
-          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
+          <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 pb-3" align="center">
             <img src="/img/jobcall.png" width="20%" alt="Logo" />
           </div>
           <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <Register />
           </div>
-          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6 login-gradient p-4">
 
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>

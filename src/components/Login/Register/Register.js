@@ -34,7 +34,7 @@ export default function Register({ setToken }) {
 
 
   return (
-    <div className="register-wrapper">
+    <div className="register-wrapper register-gradient p-4">
       <h1>Register</h1>
       <form onSubmit={handleSubmit}>
         <div className="row">
