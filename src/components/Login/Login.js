@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import Register from './Register/Register.js'
 
 import './Login.css';
 
 
 async function loginUser(credentials) {
- return fetch('http://localhost:8080/login', {
+ return fetch('http://jofre/login', {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json'
@@ -30,21 +31,39 @@ export default function Login({ setToken }) {
 
 
   return(
+    
     <div className="login-wrapper">
+      <div className="container">
+        
+        <div className="row">
+      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <Register/>
+      </div>
+      <div className="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+
       <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
+        <div className="col-xs-12">
         <label>
+          
           <p>Username</p>
-          <input type="text" onChange={e => setUserName(e.target.value)}/>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">@</span><input type="text" onChange={e => setUserName(e.target.value)}/>
+          </div>
         </label>
+        </div>
+        <div className="col-xs-12">
         <label>
           <p>Password</p>
           <input type="password" onChange={e => setPassword(e.target.value)}/>
         </label>
-        <div>
-          <button type="submit">Submit</button>
+        </div>
+        <div className="col-xs-12" align="center">
+          <button type="submit" className="btn btn-primary">Submit</button>
         </div>
       </form>
+      </div>
+      </div></div>
     </div>
   )
 }
