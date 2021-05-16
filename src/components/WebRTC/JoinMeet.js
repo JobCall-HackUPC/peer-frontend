@@ -14,7 +14,7 @@ export default function JoinMeet ({ idRemote }) {
         peer.on('open', (id)=>{
             console.log("Connected with Id: "+id);
             const constraints = { 'video': true, 'audio': true };
-            navigator.mediaDevices.getUserMedia(constraints).then( (stream) => {
+            navigator.mediaDevices.getUserMedia(constraints).then((stream) => {
                 console.log("Join stream", stream);
                 const videoElement = localVideo.current;
                 videoElement.srcObject = stream;
@@ -25,16 +25,22 @@ export default function JoinMeet ({ idRemote }) {
             });
         });
     };
-    meeting();
+
+    
+    try {
+        meeting();
+    } catch (error) {
+        meeting();
+    }
     
 
     return (
         <div className = "row" align = "center" style={{padding:"10px"}}>
             <div className = "col-xs-12 col-sm-12 col-md-6 col-lg-6" align = "center " >
-            <video ref={localVideo} width="100%" height="100%" autoPlay playsInline controls={false} />
+            <video ref={localVideo} width="100%" height="100%" autoPlay controls={false} />
             </div>
             <div className = "col-xs-12 col-sm-12 col-md-6 col-lg-6" align = "center d-inline">
-            <video width="100%" height="100%" autoPlay playsInline controls={false} ref={remoteVideo} />
+            <video width="100%" height="100%" autoPlay controls={false} ref={remoteVideo} />
             </div>
         </div>
     );

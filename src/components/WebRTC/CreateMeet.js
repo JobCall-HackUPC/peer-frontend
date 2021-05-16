@@ -56,67 +56,67 @@ export default function CreateMeet() {
       </div>
       <form align="left" className="pt-3">
         <div className="gradientmeet arrodonit pb-3 pl-2 pr-2">
-          <div className="row pt-2" align="center"><h2 className="whitelet">Pick some tags</h2></div>
-          <div className="row p-3">
+          <div className="row pt-4" align="center"><h2 className="whitelet">Pick some tags</h2></div>
+          <div className="row p-4 whitelet">
             <div className="col-md-3 mb-3">
-              <input type="checkbox" />email
+              <input type="checkbox" /> email
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>gcloud
+              <input type="checkbox"></input> gcloud
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>go
+              <input type="checkbox"></input> go
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>google-bigquery
+              <input type="checkbox"></input> google-bigquery
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>google-cloud-dataflow
+              <input type="checkbox"></input> google-cloud-dataflow
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>c
+              <input type="checkbox"></input> c
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>googgoogle-cloud-endpointsle
+              <input type="checkbox"></input> googgoogle-cloud-endpointsle
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>google-cloud-iam
+              <input type="checkbox"></input> google-cloud-iam
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>python
+              <input type="checkbox"></input> python
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>docker
+              <input type="checkbox"></input> docker
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>node.js
+              <input type="checkbox"></input> node.js
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>speech-recognition
+              <input type="checkbox"></input> speech-recognition
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>google-cloud-iam
+              <input type="checkbox"></input> google-cloud-iam
             </div>
             <div className="col-md-3 mb-3">
-              <input type="checkbox"></input>shell
+              <input type="checkbox"></input> shell
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox"></input>Java
+              <input type="checkbox"></input> Java
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox"></input>google-cloud-datastore
+              <input type="checkbox"></input> google-cloud-datastore
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox"></input>speech-to-text
+              <input type="checkbox"></input> speech-to-text
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox" className="pr-1" />haskell
+              <input type="checkbox" className="pr-1" /> haskell
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox"></input>kotlin
+              <input type="checkbox"></input> kotlin
             </div>
             <div className="col-xs-6 col sm-5 col-md-4 col-lg-3">
-              <input type="checkbox"></input>pike
+              <input type="checkbox"></input> pike
             </div>
           </div>
         </div>

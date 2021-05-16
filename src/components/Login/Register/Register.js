@@ -3,6 +3,10 @@ import PropTypes from 'prop-types';
 
 import './Register.css';
 
+function home(e) {
+  e.preventDefault();
+  window.location = '/';
+}
 
 async function register(credentials) {
   return fetch('http://localhost:8080/register', {
@@ -80,7 +84,7 @@ export default function Register({ setToken }) {
             </div>
           </div>
           <div className="col-xs-12" align="center">
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn btn-primary" onClick={home}>Submit</button>
           </div>
         </div>
       </form>

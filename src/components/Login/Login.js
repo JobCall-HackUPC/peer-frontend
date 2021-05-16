@@ -4,6 +4,11 @@ import Register from './Register/Register.js'
 
 import './Login.css';
 
+function home(e) {
+  e.preventDefault();
+  window.location = '/';
+}
+
 
 async function loginUser(credentials) {
   return fetch('http://jofre/login', {
@@ -65,7 +70,7 @@ export default function Login({ setToken }) {
                 </label>
               </div>
               <div className="col-xs-12" align="center">
-                <button type="submit" className="btn btn-primary">Submit</button>
+                <button type="submit" className="btn btn-primary" onClick={home}>Submit</button>
               </div>
             </form>
           </div>
