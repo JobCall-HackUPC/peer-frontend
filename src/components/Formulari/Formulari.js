@@ -28,6 +28,7 @@ export default function Formulari() {
         <div>
             <div align="center" className="m-5 p-2">
                 <div className="jumbotron">
+                    <div></div>
                 <h1>List of Tags</h1>
                 <form>
                     <div className="row">

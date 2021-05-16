@@ -4,7 +4,9 @@ import WebRTC from './components/WebRTC.js';
 import Formulari from './components/Formulari/Formulari.js';
 import useToken from './components/useToken.js';
 import './App.css';
-import Login from './components/Login/Login.js'
+import Home from './components/Home.js'
+import Login from './components/Login/Login.js';
+
 
 
 function setToken(userToken) {
@@ -23,9 +25,9 @@ export default function App() {
   const { token, setToken } = useToken();
   
 
-  //  if(!token) {
-  //    return <div className="background"><Login setToken={setToken} /></div>
-  //  }
+    //if(!token) {
+    //  return <div className="background"><Login setToken={setToken} /></div>
+    //}
 
 
   return (
@@ -39,10 +41,13 @@ export default function App() {
           <Route path="/form">
             <Formulari />
           </Route>
+          <Route path="/">
+            <Home />
+          </Route>
         </Switch>
       </BrowserRouter>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>v
-      <br/><br/><br/><br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/><br/><br/>
       </div>
     </div>
   );
