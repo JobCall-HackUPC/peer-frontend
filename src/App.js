@@ -27,7 +27,7 @@ export default function App() {
 
 
   return (
-    <div className="wrapper">
+    <div className="wrapper container">
       <BrowserRouter>
         <Switch>
           <Route path="/webrtc">

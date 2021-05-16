@@ -32,7 +32,7 @@ export default function Login({ setToken }) {
 
   return (
 
-    <div className="login-wrapper">
+    <div className="login-wrapper" align="center">
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12" align="center">
@@ -45,23 +45,22 @@ export default function Login({ setToken }) {
 
             <h1>Log In</h1>
             <form onSubmit={handleSubmit}>
-              <div className="col-xs-12">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>
-
                   <p>Username</p>
-                  <div class="input-group mb-3">
+                  <div class="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="input-group-prepend">
                       <span class="input-group-text" id="basic-addon1">@</span>
                     </div>
-                    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" onChange={e => setUserName(e.target.value)} />
+                    <input type="text" class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" onChange={e => setUserName(e.target.value)} />
                   </div>
                 </label>
               </div>
-              <div className="col-xs-12">
+              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                 <label>
                   <p>Password</p>
-                  <div class="input-group mb-3">
-                    <input type="password" onChange={e => setPassword(e.target.value)} class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" />
+                  <div class="input-group mb-3 col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <input type="password" onChange={e => setPassword(e.target.value)} class="form-control col-xs-12 col-sm-12 col-md-12 col-lg-12" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" />
                   </div>
                 </label>
               </div>
