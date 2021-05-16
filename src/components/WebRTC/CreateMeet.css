@@ -1,0 +1,11 @@
+.gradientmeet {
+    background-image: linear-gradient(15deg, #41a5aa 0%, #606af0 100%);
+    border-radius: 50px;
+
+}
+.arrodonit {
+    border-radius: 50px;
+}
+.whitelet {
+    color: white;
+}
